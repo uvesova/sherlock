@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block header %}<h1>Объекты учёта:</h1>{% endblock header %}
+{% block content %}
+<ul>
+    {% for param in params %}
+    <li>{{param.id_param }}. {{ param.name }}, тип: {{ param.type }}
+    {% if param.id_group_param %}, группа {{ param.id_group_param }} {% endif %}
+    {% if param.type == "S" %}, cловарь `{{ param.id_slv }}` {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+{% block footer %}{% endblock footer %}

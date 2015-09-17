@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block header %}<h1>Объекты учёта:</h1>{% endblock header %}
+{% block content %}
+<h2>Основные:</h2>
+<ul>
+    {% for type in main %}
+    <li>
+    <a href="{% url 'query' type.id_typeobj %}">
+    {{ type.name_typeobj }}
+    </a>
+    [<a href="{% url 'params' type.id_typeobj %}">?</a>]
+    </li>
+    {% endfor %}
+</ul>
+<h2>Порождённые:</h2>
+<ul>
+    {% for type in sibling %}
+    <li>
+    <a href="{% url 'query' type.id_typeobj %}">
+    {{ type.name_typeobj }}
+    </a>
+    [<a href="{% url 'params' type.id_typeobj %}">?</a>]
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+{% block footer %}{% endblock footer %}

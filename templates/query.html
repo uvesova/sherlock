@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% bootstrap_messages %}
+{% block header %}<h1>Объекты учёта:</h1>{% endblock header %}
+{% block content %}
+
+<form action="." method="post" class="form">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	{% buttons %}
+	<button type="submit" class="btn btn-primary">
+	{% bootstrap_icon "star" %} Отправить</button>
+	{% endbuttons %}
+</form>
+{% endblock content %}
